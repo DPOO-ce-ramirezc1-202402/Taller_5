@@ -31,6 +31,6 @@ public class ProductoMenuTest {
 	public void testGenerarTectoFactura() {
 		String esperado = "corral\n            14000\n";
 		assertEquals(esperado, producto.generarTextoFactura(), "El texto gnerado no es el esperado.");
-	} 
+	}  
 
 }

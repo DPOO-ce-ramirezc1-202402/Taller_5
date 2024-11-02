@@ -45,7 +45,20 @@ public class ProductoAjustado implements Producto
     @Override
     public int getPrecio( )
     {
-        return 0;
+    	
+    	int precioTotal = productoBase.getPrecio();
+    	for(Ingrediente ingrediente : agregados) {
+    		precioTotal += ingrediente.getCostoAdicional();
+    	}
+        return precioTotal;
+    }
+    
+    public void agregarIngrediente(Ingrediente ingrediente) {
+    	this.agregados.add(ingrediente);
+    }
+    
+    public void eliminarIngrediente(Ingrediente ingrediente) {
+    	this.eliminados.add(ingrediente);
     }
 
     /**
