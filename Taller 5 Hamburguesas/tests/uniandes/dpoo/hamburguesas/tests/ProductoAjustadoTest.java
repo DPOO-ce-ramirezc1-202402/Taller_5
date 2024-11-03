@@ -45,6 +45,8 @@ public class ProductoAjustadoTest {
 		productoAjustado.agregarIngrediente(lechuga);
 		productoAjustado.agregarIngrediente(quesoMozzarella);
 		
+		
+		
 		String esperado = 
 				"corral\n" + 
 				"    +lechuga                1000\n" + 
