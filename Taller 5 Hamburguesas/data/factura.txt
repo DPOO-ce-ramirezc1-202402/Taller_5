@@ -1,0 +1,7 @@
+Cliente: Jose Ovalle
+Dirección: Calle 145 #21-77
+----------------
+----------------
+Precio Neto:  0
+IVA:          0
+Precio Total: 0

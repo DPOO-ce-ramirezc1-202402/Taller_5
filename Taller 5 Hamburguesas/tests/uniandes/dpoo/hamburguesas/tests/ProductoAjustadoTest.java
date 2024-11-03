@@ -58,6 +58,7 @@ public class ProductoAjustadoTest {
 	public void testGenerarFacturaConAjustesYEliminados() {
 		productoAjustado.agregarIngrediente(lechuga);
 		productoAjustado.eliminarIngrediente(quesoMozzarella);
+
 		
 		String esperado = 
 				"corral\n" + 
