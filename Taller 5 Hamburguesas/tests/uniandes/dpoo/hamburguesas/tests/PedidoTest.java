@@ -11,7 +11,10 @@ import uniandes.dpoo.hamburguesas.mundo.ProductoMenu;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Field;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -88,4 +91,34 @@ public class PedidoTest {
 		assertEquals(esperado, pedido.generarTextoFactura(), "La factura generada no coincide.");
 					
 	}
+	
+	@Test
+	public void testGuardarFactura() throws IOException{
+		
+		pedido.agregarProducto(producto1);
+		pedido.agregarProducto(producto2);
+		
+		int precioNeto = 14000 + 5500;
+		int iva = (int) (precioNeto * 0.19);
+		int precioTotal = precioNeto + iva;
+		File temporal = File.createTempFile("facturaTest", ".txt");
+		try {
+			pedido.guardarFactura(temporal);
+		} catch(FileNotFoundException e) {
+			fail("No se pudo crear el archivo.");
+		}
+		try {
+			String contenido = Files.readString(Path.of(temporal.getPath()));
+			
+			assertTrue(contenido.contains("Cliente: Jose Ovalle"));
+			assertTrue(contenido.contains("Dirección: Calle 145 #21-77"));
+			assertTrue(contenido.contains("corral"));
+			assertTrue(contenido.contains("papas medianas"));
+			assertTrue(contenido.contains("Precio Neto:  " + precioNeto));
+			assertTrue(contenido.contains("IVA:          " + iva));
+			assertTrue(contenido.contains("Precio Total: " + precioTotal));
+		} finally {
+			temporal.delete();
+		}
+	}	
 }
