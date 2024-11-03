@@ -6,13 +6,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import uniandes.dpoo.hamburguesas.mundo.Ingrediente;
 
 import uniandes.dpoo.hamburguesas.mundo.ProductoAjustado;
 import uniandes.dpoo.hamburguesas.mundo.ProductoMenu;
 import uniandes.dpoo.hamburguesas.mundo.Ingrediente;
-
-import java.util.ArrayList;
 
 public class ProductoAjustadoTest {
 	
